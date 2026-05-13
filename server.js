@@ -6,8 +6,11 @@ import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import fournisseurRoutes from "./routes/fournisseurRoutes.js";
+import imprimanteRoutes from "./routes/imprimanteRoutes.js";
+import telephoneRoutes from "./routes/telephoneRoutes.js";
+
 import userRoutes from "./routes/userRoutes.js";
-import incidentRoutes from "./routes/incidentRoutes.js"; // ✅ AJOUT
+import incidentRoutes from "./routes/incidentRoutes.js";
 
 import seedAdmin from "./SeedAdmin.js";
 
@@ -27,8 +30,12 @@ app.use(express.json());
 app.use("/api/ordinateurs", productRoutes);
 app.use("/api/directions", categoryRoutes);
 app.use("/api/agences", fournisseurRoutes);
+app.use("/api/imprimantes", imprimanteRoutes);
+app.use("/api/telephones", telephoneRoutes);
+
 app.use("/api/users", userRoutes);
-app.use("/api/incidents", incidentRoutes); // ✅ AJOUT
+
+app.use("/api/incidents", incidentRoutes);
 
 app.get("/", (req, res) => {
   res.send("API fonctionne 🚀");
